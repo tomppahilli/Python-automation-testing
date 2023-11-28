@@ -1,0 +1,54 @@
+Documentation    Robot Framework basic training
+
+Resource         /Resources/Common.Robot
+ 
+*** Settings ***
+
+Library          SeleniumLibrary    
+
+Library          Dialogs
+
+Test Setup       No Operation
+
+Test Teardown    No Operation
+
+ 
+
+*** Test Cases ***
+
+ 
+
+Open Google And Make Search
+
+    Open Browser    https://www.google.com         Chrome
+
+    Maximize Browser Window
+
+    Set Window Size    180 	1080
+
+    builtIn.Sleep    2
+
+    Maximize Browser Window
+
+
+    Wait Until Page Contains Element    //button[@id="L2AGLb"]
+
+    Click Element    //button[@id="L2AGLb"]
+
+    Wait Until Page Contains Element    //textarea[@jsname="yZiJbe"]
+
+    Input Text    //textarea[@jsname="yZiJbe"]    robot Framework
+
+    Wait Until Page Contains Element    //img[@alt="Google"]
+
+    Click Element    //img[@alt="Google"]
+
+    Wait Until Page Contains Element    (//input[@value="Google-haku" and @aria-label="Google-haku"])[2]
+
+    Click Element    (//input[@value="Google-haku" and @aria-label="Google-haku"])[2]
+
+    Wait Until Page Contains    robot Framework 
+
+    Pause Execution   tee ny jo jotain!
+
+    Close Browser
